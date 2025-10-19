@@ -1,0 +1,54 @@
+{
+  "name": "luminous-mastermindai-backend",
+  "version": "1.0.0",
+  "description": "AI automation platform backend API",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js",
+    "build": "npm install --production",
+    "test": "jest",
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "cors": "^2.8.5",
+    "helmet": "^7.1.0",
+    "dotenv": "^16.3.1",
+    "jsonwebtoken": "^9.0.2",
+    "bcryptjs": "^2.4.3",
+    "pg": "^8.11.3",
+    "redis": "^4.6.8",
+    "passport": "^0.6.0",
+    "passport-google-oauth20": "^2.0.0",
+    "passport-jwt": "^4.0.1",
+    "multer": "^1.4.5-lts.1",
+    "uuid": "^9.0.1",
+    "joi": "^17.10.2",
+    "rate-limiter-flexible": "^3.0.8",
+    "winston": "^3.10.0",
+    "openai": "^4.12.4",
+    "googleapis": "^126.0.1",
+    "socket.io": "^4.7.2",
+    "bull": "^4.11.3"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1",
+    "jest": "^29.6.4",
+    "eslint": "^8.48.0",
+    "supertest": "^6.3.3"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "keywords": [
+    "ai",
+    "automation",
+    "workflow",
+    "business-process",
+    "oauth",
+    "google-drive"
+  ],
+  "author": "Andrew Porter",
+  "license": "MIT"
+}
