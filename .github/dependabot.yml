@@ -1,0 +1,16 @@
+version: 2
+updates:
+  - package-ecosystem: "npm" # or any other ecosystem you're using
+    directory: "/" # Location of package manifests
+    schedule:
+      interval: "daily"
+      day: "monday"
+      time: "00:00"
+      timezone: "UTC"
+    open-pull-requests-limit: 5
+    commit-message:
+      prefix: "fix"
+    pull-request-branch-name: "dependabot/${{ dependencyName }}"
+    auto-merge: true
+    ignore:
+      - dependency-name: "example-dependency" # Optional: Ignore specific dependencies
