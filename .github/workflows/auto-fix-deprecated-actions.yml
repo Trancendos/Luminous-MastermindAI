@@ -31,14 +31,13 @@ jobs:
           workflow_files=$(find .github/workflows -name "*.yml" -o -name "*.yaml")
 
           for file in $workflow_files; do
-            if grep -qE "actions/cache@v[12]([^0-9]|$)" "$file"; then
+            if grep -qE "actions/cache@v[12]([^0-9]|[[:space:]]|$)" "$file"; then
               echo "Found deprecated actions/cache in: $file"
 
-              # Replace v1 with v4 (only exact matches)
-              sed -i 's/actions\/cache@v1\([^0-9]\|$\)/actions\/cache@v4\1/g' "$file"
-
-              # Replace v2 with v4 (only exact matches)
-              sed -i 's/actions\/cache@v2\([^0-9]\|$\)/actions\/cache@v4\1/g' "$file"
+              # Replace v1 and v2 with v4 (only exact matches)
+              for version in 1 2; do
+                sed -i "s/actions\/cache@v${version}\([^0-9]\|[[:space:]]\|$\)/actions\/cache@v4\1/g" "$file"
+              done
 
               echo "  ✓ Updated $file"
             fi
@@ -77,10 +76,11 @@ jobs:
             - Improved performance and caching strategy
             - Better cross-platform support
             - Active maintenance and security updates
-            - Backward compatible with v2 and v3
+            - Similar API to v2 and v3 with enhancements
 
             ### References
             - [actions/cache v4 Release Notes](https://github.com/actions/cache/releases/tag/v4.0.0)
+            - [Migration Guide](https://github.com/actions/cache/blob/main/docs/v4-migration.md)
             - [GitHub Actions Versioning](https://docs.github.com/en/actions/creating-actions/about-custom-actions#using-release-management-for-actions)
 
             ---
